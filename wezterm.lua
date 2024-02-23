@@ -3,6 +3,11 @@ local act = wezterm.action
 local mux = wezterm.mux
 local config = wezterm.config_builder()
 
+local os_name = package.config:sub(1, 1) == "\\" and "windows" or "unix"
+if os_name == "windows" then
+	config.default_domain = "WSL:rancher-desktop"
+end
+
 wezterm.on("gui-startup", function()
 	local tab, pane, window = mux.spawn_window({})
 	window:gui_window():maximize()
