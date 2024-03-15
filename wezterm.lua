@@ -6,6 +6,8 @@ local config = wezterm.config_builder()
 local os_name = package.config:sub(1, 1) == "\\" and "windows" or "unix"
 if os_name == "windows" then
 	config.default_domain = "WSL:rancher-desktop"
+	-- on mac yabai adds the transparency
+	config.window_background_opacity = 0.95
 end
 
 wezterm.on("gui-startup", function()
@@ -20,7 +22,6 @@ config.adjust_window_size_when_changing_font_size = false
 config.color_scheme = "catppuccin-mocha"
 
 config.scrollback_lines = 5000
-config.window_background_opacity = 0.95
 config.window_decorations = "RESIZE"
 config.window_frame = {
 	font = wezterm.font({ family = font, weight = "Bold" }),
