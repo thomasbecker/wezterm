@@ -21,7 +21,7 @@ config.adjust_window_size_when_changing_font_size = false
 -- config.color_scheme = "Tokyo Night Storm"
 config.color_scheme = "catppuccin-mocha"
 
-config.scrollback_lines = 5000
+config.scrollback_lines = 25000
 config.window_decorations = "RESIZE"
 config.window_frame = {
 	font = wezterm.font({ family = font, weight = "Bold" }),
@@ -141,6 +141,8 @@ config.colors = {
 config.leader = { key = "a", mods = "CMD", timeout_milliseconds = 1000 }
 config.keys = {
 	{ key = "0", mods = "CTRL", action = act.PaneSelect },
+	{ key = "PageUp", mods = "SHIFT", action = act.ScrollByPage(-0.75) },
+	{ key = "PageDown", mods = "SHIFT", action = act.ScrollByPage(0.75) },
 	{
 		key = "d",
 		mods = "CMD|SHIFT",
